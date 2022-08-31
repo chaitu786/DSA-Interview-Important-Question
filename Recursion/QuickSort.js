@@ -20,10 +20,28 @@ function Partion(arr,left,right){
     let i=left
     let j=right
     let pivot=arr[left]
-    
+    while(i<j){
+      while(arr[i]<=pivot && i<right){
+        i++
+      }
+      while(arr[j]>=pivot && j>left){
+        j--
+      }
+      if(i<j){
+        swap(arr,i,j)
+      }
+    }
+    swap(arr,left,j)
+    return j
+}
+function swap(arr,i,j){
+  let temp=arr[i]
+  arr[i]=arr[j]
+  arr[j]=temp
 }
 if (process.env.USERNAME === "Chaithanya") {
-  runProgram(``);
+  runProgram(`5
+  3 5 0 9 8`);
 } else {
   process.stdin.resume();
   process.stdin.setEncoding("ascii");
