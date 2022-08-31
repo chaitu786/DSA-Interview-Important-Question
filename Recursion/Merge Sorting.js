@@ -9,25 +9,25 @@ function runProgram(input){
     console.log(arr.join(" "))
 }
 function mergeSort(arr,left,right){
-    if(left==right){
-        return 
+    if(left>=right){
+        return
     }
-    let mid=Math.floor(arr.length/2)
-    mergeSort(arr,left,right)
-    mergeSort(arr,mid+1,right)
-    mergeTheArr(arr,left,right,mid)
+   let middle=Math.floor((left+right)/2)
+   mergeSort(arr,left,middle)
+   mergeSort(arr,middle+1,right)
+   mergeTheArr(arr,left,right,middle)
 }
 function mergeTheArr(arr,left,right,mid){
     let arr1=[]
     let arr2=[]
-    let i=0
+    let i=0;
     let j=0
     let curr=left
-    for(let x=left;x<=mid;x++){
-        arr1.push(arr[x])
+    for(let a=left;a<=mid;a++){
+        arr1.push(arr[a])
     }
-    for(let x=mid+1;x<=right;x++){
-        arr1.push(arr[x])
+    for(let a=mid+1;a<=right;a++){
+        arr2.push(arr[a])
     }
 
     while(i<arr1.length && j<arr2.length){
@@ -42,11 +42,11 @@ function mergeTheArr(arr,left,right,mid){
         curr++
     }
     while(i<arr1.length){
-        arr[curr]=arr1[j]
+        arr[curr]=arr1[i]
         i++
         curr++
     }
-    while(j<arr1.length){
+    while(j<arr2.length){
         arr[curr]=arr2[j]
         j++
         curr++
